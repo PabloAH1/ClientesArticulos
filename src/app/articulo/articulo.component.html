@@ -1,0 +1,257 @@
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="agregar()">
+      <div class="row">
+        <div class="col">
+          Código de Artículo
+          <input
+            class="form-control"
+            type="number"
+            name="codArticulo"
+            placeholder="introduce un codigo cliente"
+            [(ngModel)]="nuevo.codArticulo"
+          />
+        </div>
+
+        <div class="col">
+          Nombre
+        <input
+          class="form-control"
+          type="text"
+          name="nombre"
+          placeholder="Introduce un nombre"
+          [(ngModel)]="nuevo.nombre"
+        />
+        </div>
+
+        <div class="col">
+          Descripción
+        <input
+          class="form-control"
+          type="text"
+          name="descripcion"
+          placeholder="Introduce un descripcion"
+          [(ngModel)]="nuevo.descripcion"
+        />
+        </div>
+
+        <div class="col">
+          Precio Unidad
+        <input
+          class="form-control"
+          type="number"
+          name="precioUnidad"
+          placeholder="Introduce una precioUnidad"
+          [(ngModel)]="nuevo.precioUnidad"
+        />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          Unidades en Stock
+        <input
+          class="form-control"
+          type="number"
+          name="unidadesStock"
+          placeholder="Introduce una unidadesStock"
+          [(ngModel)]="nuevo.unidadesStock"
+        />
+        </div>
+
+        <div class="col">
+          Stock Seguridad
+        <input
+          class="form-control"
+          type="number"
+          name="stockSeguridad"
+          placeholder="Introduce una stockSeguridad"
+          [(ngModel)]="nuevo.stockSeguridad"
+        />
+        </div>
+
+        <div class="col">
+          Imagen
+        <input
+          class="form-control"
+          type="text"
+          name="imagen"
+          placeholder="Introduce una imagen"
+          [(ngModel)]="nuevo.imagen"
+        />
+        </div>
+
+        <button type="submit" class="btn btn-outline-primary">
+          Agregar Articulo
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="card">
+  <div class="card-body">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      (click)="mostrarTodosArticulos()"
+    >
+      Mostrar Articulo
+    </button>
+    <div *ngIf="mostrarTodos">
+      <li *ngFor="let item of articulos">
+        Codigo articulo: {{ item.codArticulo }}-<br />
+        Nombre: {{ item.nombre }}-<br />
+        Descripcion: {{ item.descripcion }}-<br />
+        PrecioUnidad: {{item.precioUnidad}}11-<br />
+        Unidades Stock: {{ item.unidadesStock }}-<br />
+        Stock Seguridad: {{ item.stockSeguridad }}-<br />
+        Imagen: {{ item.imagen }}<br />
+      </li>
+    </div>
+  </div>
+  <br />
+
+  <div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="mostrar()">
+        <div class="row">
+        <input
+          class="form-control"
+          type="number"
+          name="codArticulo"
+          placeholder="introduce un codigo articulo"
+          [(ngModel)]="buscarCod"
+        />
+        <button type="submit" class="btn btn-outline-primary">
+          Buscar Articulo
+        </button>
+        <button
+          type="button"
+          class="btn btn-outline-warning"
+          (click)="limpiar()"
+        >
+          Limpiar
+        </button>
+        </div>
+      </form>
+      <p>{{ nombreArticuloBuscado }}</p>
+    </div>
+  </div>
+</div>
+
+<br />
+
+<br />
+
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="eliminar()">
+      <div class="row">
+        <div class="col">
+      <input
+        class="form-control"
+        type="number"
+        name="codArticulo"
+        placeholder="introduce un codigo articulo"
+        [(ngModel)]="buscarCod"
+      />
+        </div>
+
+      <button type="submit" class="btn btn-outline-danger">
+        Borrar Articulo
+      </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<br />
+
+<div class="card">
+  <div class="card-body">
+    <form (ngSubmit)="editar()">
+      <div class="row">
+        <div class="col">
+      <input
+        class="form-control"
+        type="text"
+        name="codArticulo"
+        placeholder="introduce un codigo cliente"
+        [(ngModel)]="nuevo.codArticulo"
+      />
+        </div>
+
+        <div class="col">
+      <input
+        class="form-control"
+        type="text"
+        name="nombre"
+        placeholder="Introduce un nombre"
+        [(ngModel)]="nuevo.nombre"
+      />
+        </div>
+      </div>
+
+      <div class="row">
+      <div class="col">
+
+      <input
+        class="form-control"
+        type="text"
+        name="descripcion"
+        placeholder="Introduce un descripcion"
+        [(ngModel)]="nuevo.descripcion"
+      />
+      </div>
+
+      <div class="col">
+      <input
+        class="form-control"
+        type="text"
+        name="precioUnidad"
+        placeholder="Introduce una precioUnidad"
+        [(ngModel)]="nuevo.precioUnidad"
+      />
+      </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col">
+      <input
+        class="form-control"
+        type="text"
+        name="unidadesStock"
+        placeholder="Introduce una unidadesStock"
+        [(ngModel)]="nuevo.unidadesStock"
+      />
+        </div>
+
+        <div class="col">
+      <input
+          class="form-control"
+        type="text"
+        name="stockSeguridad"
+        placeholder="Introduce una stockSeguridad"
+        [(ngModel)]="nuevo.stockSeguridad"
+      />
+        </div>
+
+        <div class="col">
+      <input
+          class="form-control"
+        type="text"
+        name="imagen"
+        placeholder="Introduce una imagen"
+        [(ngModel)]="nuevo.imagen"
+      />
+        </div>
+
+      <button type="submit" class="btn btn-outline-primary">
+        Editar Articulo
+      </button>
+    </div>
+    </form>
+  </div>
+</div>

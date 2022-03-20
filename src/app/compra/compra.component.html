@@ -1,0 +1,140 @@
+<div class="card">
+  <h1>Compra</h1>
+  <hr>
+  <div class="card-body">
+    <form (ngSubmit)="agregar()">
+      <div class="row">
+        <div class="col">
+          <li *ngFor="let item of clientes" (click)="onSelectCliente(item)">
+            CodCliente: {{item.codCliente}},
+            Nombre: {{item.nombre}}
+            {{item.apellidos}}-<br>
+            Empresa: {{item.empresa}}-<br>
+          </li>
+        </div>
+        <div class="col">
+          <li *ngFor="let item of articulos" (click)="onSelectArticulo(item)">
+            CodArticulo: {{item.codArticulo}},
+            Nombre: {{item.nombre}}
+            Stock Unidades: -- Stock: {{item.unidadesStock}}
+          </li>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col">
+              <h2>CodCliente: {{clienteSelect.codCliente}} -- Cliente: {{clienteSelect.nombre | uppercase}},
+                {{clienteSelect.apellidos |uppercase}}</h2>
+              <h2>CodArticulo: {{articuloSelect.codArticulo}} -- Articulo: {{articuloSelect.nombre | uppercase}}</h2>
+              <h2>Cantidad: <input type="number" name="unidades" placeholder="introduce la cantidad"
+                  [(ngModel)]="nuevo.unidades"></h2>
+              <h2>Fecha: <input type="text" name="fecha" placeholder="introduce la fecha" [(ngModel)]="nuevo.fecha">
+              </h2>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-outline-primary">Realizar Compra</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<div class="card">
+  <div class="card-body">
+    <button
+      type="button"
+      class="btn btn-outline-primary"
+      (click)="mostrarTodasCompras()"
+    >
+      Mostrar Todas las Compras
+    </button>
+    <div *ngIf="mostrarTodos">
+      <li *ngFor="let item of compras">
+        Codigo cliente: {{ item.codCliente }},
+        Codigo articulo: {{ item.codArticulo }},
+        Fecha: {{ item.fecha }},
+        Unidades: {{ item.unidades }}<br />
+      </li>
+    </div>
+  </div>
+  <br />
+
+
+
+
+<div class="card">
+  <div class="card-body">
+<form (ngSubmit)="mostrar()">
+  <div class="row">
+    <div class="col">
+      Codigo Cliente
+      <input type="number" name="codCliente" placeholder="introduce un codigo cliente" [(ngModel)]="buscarCodCli">
+      Codigo Artículo
+      <input type="number" name="codArticulo" placeholder="introduce un codigo articulo" [(ngModel)]="buscarCodArt">
+      Fecha
+      <input  type="text" name="fecha" placeholder="introduce una fecha" [(ngModel)]="buscarFecha">
+    </div>
+  <button class="btn btn-outline-primary" type="submit">Buscar Cliente</button>
+  <button class="btn btn-outline-warning" type="button" (click)="limpiar()">Limpiar</button>
+  </div>
+</form>
+  <p>{{textoCompraBuscada}}</p>
+  </div>
+</div>
+
+<br>
+
+
+
+<div class="card">
+  <div class="card-body">
+<form (ngSubmit)="editar()">
+  <div class="row">
+    <div class="col">
+      Código Cliente
+      <input class="form-control" type="number" name="codCliente" placeholder="introduce un codigo cliente" [(ngModel)]="nuevo.codCliente">
+    </div>
+    <div class="col">
+      Código Artículo
+      <input class="form-control" type="number" name="codArticulo" placeholder="introduce un codigo articulo" [(ngModel)]="nuevo.codArticulo">
+    </div>
+    <div class="col">
+      Unidades
+      <input class="form-control" type="number" name="unidades" placeholder="Introduce las unidades" [(ngModel)]="nuevo.unidades">
+    </div>
+    <div class="col">
+      Fecha
+      <input class="form-control" type="text" name="fecha" placeholder="introduce una fecha" [(ngModel)]="nuevo.fecha">
+    </div>
+    <button class="btn btn-outline-primary" type="submit">Editar Cliente</button>
+  </div>
+</form>
+
+<br />
+
+<br />
+
+<div class="card">
+  <div class="card-body">
+<form (ngSubmit)="eliminar()">
+  <div class="row">
+    <div class="col">
+      Código Cliente
+      <input class="form-control" type="number" name="codCliente" placeholder="introduce un codigo cliente" [(ngModel)]="buscarCodCli">
+    </div>
+    <div class="col">
+      Código Artículo
+      <input class="form-control" type="number" name="codArticulo" placeholder="introduce un codigo articulo" [(ngModel)]="buscarCodArt">
+    </div>
+    <div class="col">
+      Fecha
+      <input class="form-control" type="text" name="fecha" placeholder="introduce una fecha" [(ngModel)]="buscarFecha">
+    </div>
+  <button class="btn btn-outline-danger" type="submit">Borrar Compra</button>
+  </div>
+</form>
+  </div>
+</div>
+<br>

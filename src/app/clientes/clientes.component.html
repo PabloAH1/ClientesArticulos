@@ -1,0 +1,156 @@
+<form (ngSubmit)="agregar()">
+
+  <div class="card">
+    <div class="card-body">
+  <div class="row">
+    <div class="col">
+      Codigo Cliente
+      <input class="form-control" type="number" name="codCliente" placeholder="introduce un codigo cliente" [(ngModel)]="nuevo.codCliente">
+    </div>
+    <div class="col">
+      Nombre:
+      <input class="form-control" type="text" name="nombre" placeholder="Introduce un nombre" [(ngModel)]="nuevo.nombre">
+    </div>
+    <div class="col">
+      Apellidos:
+      <input class="form-control" type="text" name="apellidos" placeholder="Introduce un apellido" [(ngModel)]="nuevo.apellidos">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Empresa:
+      <input class="form-control" type="text" name="empresa" placeholder="Introduce una empresa" [(ngModel)]="nuevo.empresa">
+    </div>
+    <div class="col">
+      Puesto:
+      <input class="form-control" type="text" name="puesto" placeholder="Introduce un puesto" [(ngModel)]="nuevo.puesto">
+    </div>
+    <div class="col">
+      C.P.:
+      <input class="form-control" type="number" name="cp" placeholder="Introduce un codigo postal" [(ngModel)]="nuevo.cp">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Provincia:
+      <input class="form-control" type="text" name="provincia" placeholder="Introduce una provincia" [(ngModel)]="nuevo.provincia">
+    </div>
+    <div class="col">
+      Telefono:
+      <input class="form-control" type="number" name="telefono" placeholder="Introduce un telefono" [(ngModel)]="nuevo.telefono">
+    </div>
+    <div class="col">
+      Fecha Nacimiento:
+      <input class="form-control" type="number" name="fechaNacimiento" placeholder="Introduce una fecha de nacimiento" [(ngModel)]="nuevo.fechaNacimiento">
+    </div>
+  <button class="btn btn-outline-primary" type="submit">Agregar Cliente</button>
+  </div>
+    </div>
+  </div>
+</form>
+
+
+<br>
+
+<div class="card">
+  <div class="card-body">
+
+<div>
+<button type="button" class="btn btn-outline-primary" (click)="mostrarTodosClientes()">Mostrar Clientes</button>
+<div *ngIf="mostrarTodos">
+  <li *ngFor="let item of clientes">
+    Codigo cliente: {{item.codCliente}}-<br>
+    Nombre: {{item.nombre}}-<br>
+    Apellidos: {{item.apellidos}}-<br>
+    Empresa: {{item.empresa}}-<br>
+    Puesto: {{item.puesto}}-<br>
+    Codigo Postal: {{item.cp}}-<br>
+    Provincia: {{item.provincia}}-<br>
+    Telefono: {{item.telefono}}-<br>
+    Fecha nacimiento: {{item.fechaNacimiento}}</li>
+
+</div>
+</div>
+  </div>
+</div>
+
+<br>
+
+<div class="card">
+  <div class="card-body">
+<form (ngSubmit)="mostrar()">
+  <div class="row">
+    <div class="col">
+      <input class="form-control" type="number" name="codCliente" placeholder="introduce un codigo cliente" [(ngModel)]="buscarCod">
+    </div>
+  <button class="btn btn-outline-primary" type="submit">Buscar Cliente</button>
+  <button class="btn btn-outline-warning" type="button" (click)="limpiar()">Limpiar</button>
+  </div>
+</form>
+  <p>{{nombreClienteBuscado}}</p>
+  </div>
+</div>
+
+<br>
+
+<div class="card">
+  <div class="card-body">
+<form (ngSubmit)="editar()">
+  <div class="row">
+    <div class="col">
+      <input class="form-control" type="number" name="codCliente" placeholder="introduce un codigo cliente" [(ngModel)]="nuevo.codCliente">
+    </div>
+    <div class="col">
+      <input class="form-control" type="text" name="nombre" placeholder="Introduce un nombre" [(ngModel)]="nuevo.nombre">
+    </div>
+    <div class="col">
+      <input class="form-control" type="text" name="apellidos" placeholder="Introduce un apellido" [(ngModel)]="nuevo.apellidos">
+    </div>
+  </div>
+
+
+<div class="row">
+  <div class="col">
+    <input class="form-control" type="text" name="empresa" placeholder="Introduce una empresa" [(ngModel)]="nuevo.empresa">
+  </div>
+  <div class="col">
+  <input class="form-control" type="text" name="puesto" placeholder="Introduce un puesto" [(ngModel)]="nuevo.puesto">
+  </div>
+  <div class="col">
+  <input class="form-control" type="text" name="puesto" placeholder="Introduce un cp" [(ngModel)]="nuevo.cp">
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <input class="form-control" type="text" name="puesto" placeholder="Introduce un Provincia" [(ngModel)]="nuevo.provincia">
+  </div>
+  <div class="col">
+    <input class="form-control" type="text" name="puesto" placeholder="Introduce un Telefono" [(ngModel)]="nuevo.telefono">
+  </div>
+  <div class="col">
+    <input  class="form-control" type="text" name="puesto" placeholder="Introduce una fecha de nacimiento" [(ngModel)]="nuevo.fechaNacimiento">
+  </div>
+
+  <button class="btn btn-outline-primary" type="submit">Editar Cliente</button>
+</div>
+
+</form>
+  </div>
+</div>
+
+<br>
+
+<div class="card">
+  <div class="card-body">
+<form (ngSubmit)="eliminar()">
+  <div class="row">
+    <div class="col">
+      <input class="form-control" type="number" name="codCliente" placeholder="introduce un codigo cliente" [(ngModel)]="buscarCod">
+    </div>
+  <button class="btn btn-outline-danger" type="submit">Borrar Cliente</button>
+  </div>
+</form>
+  </div>
+</div>
+<br>
