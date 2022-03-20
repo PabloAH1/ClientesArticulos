@@ -12,6 +12,7 @@ import { Articulo } from '../interfaces/articulo.interfaces';
   styleUrls: ['./compra.component.css']
 })
 export class CompraComponent implements OnInit {
+
   compras:Compra[]=[];
   clientes:Cliente[]=[];
   articulos:Articulo[]=[];
@@ -54,7 +55,7 @@ export class CompraComponent implements OnInit {
     this.nuevo.codArticulo=articulo.codArticulo;
   }
   agregar():void{
-    if (this.nuevo.codCliente!==0 && this.nuevo.codArticulo && this.nuevo.fecha){
+    if (this.nuevo.codCliente!==0 && this.nuevo.codArticulo!==0 && this.nuevo.fecha!=""){
       this._compraService.addCompra(this.nuevo);
     }
   }

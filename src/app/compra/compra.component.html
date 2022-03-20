@@ -13,7 +13,7 @@
           </li>
         </div>
         <div class="col">
-          <li *ngFor="let item of articulos" (click)="onSelectArticulo(item)">
+          <li *ngFor="let item of articulos;let i = index" (click)="onSelectArticulo(item)">
             CodArticulo: {{item.codArticulo}},
             Nombre: {{item.nombre}}
             Stock Unidades: -- Stock: {{item.unidadesStock}}
@@ -24,13 +24,13 @@
         <div class="card-body">
           <div class="row">
             <div class="col">
-              <h2>CodCliente: {{clienteSelect.codCliente}} -- Cliente: {{clienteSelect.nombre | uppercase}},
-                {{clienteSelect.apellidos |uppercase}}</h2>
-              <h2>CodArticulo: {{articuloSelect.codArticulo}} -- Articulo: {{articuloSelect.nombre | uppercase}}</h2>
-              <h2>Cantidad: <input type="number" name="unidades" placeholder="introduce la cantidad"
-                  [(ngModel)]="nuevo.unidades"></h2>
-              <h2>Fecha: <input type="text" name="fecha" placeholder="introduce la fecha" [(ngModel)]="nuevo.fecha">
-              </h2>
+              <h3>CodCliente: {{clienteSelect.codCliente}} -- Cliente: {{clienteSelect.nombre | uppercase}},
+                {{clienteSelect.apellidos |uppercase}}</h3>
+              <h3>CodArticulo: {{articuloSelect.codArticulo}} -- Articulo: {{articuloSelect.nombre | uppercase}}</h3>
+              <h3>Cantidad: <input type="number" name="unidades" placeholder="introduce la cantidad"
+                  [(ngModel)]="nuevo.unidades"></h3>
+              <h3>Fecha: <input type="text" name="fecha" placeholder="introduce la fecha" [(ngModel)]="nuevo.fecha">
+              </h3>
             </div>
           </div>
           <button type="submit" class="btn btn-outline-primary">Realizar Compra</button>
@@ -38,6 +38,7 @@
       </div>
     </form>
   </div>
+
 </div>
 
 
@@ -76,7 +77,7 @@
       Fecha
       <input  type="text" name="fecha" placeholder="introduce una fecha" [(ngModel)]="buscarFecha">
     </div>
-  <button class="btn btn-outline-primary" type="submit">Buscar Cliente</button>
+  <button class="btn btn-outline-primary" type="submit">Buscar Compra</button>
   <button class="btn btn-outline-warning" type="button" (click)="limpiar()">Limpiar</button>
   </div>
 </form>
@@ -108,7 +109,7 @@
       Fecha
       <input class="form-control" type="text" name="fecha" placeholder="introduce una fecha" [(ngModel)]="nuevo.fecha">
     </div>
-    <button class="btn btn-outline-primary" type="submit">Editar Cliente</button>
+    <button class="btn btn-outline-primary" type="submit">Editar Compra</button>
   </div>
 </form>
 
